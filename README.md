@@ -48,3 +48,15 @@ Explicit Types:
           age: number,
           beltColor: string,
         };
+
+Any (Dynamic) Type:
+-------------------
+
+- Can use `any` type which allows to then 
+use any of the types
+- It basically reverts what the TS is all about
+- Works like `let uid: any = 101;`
+- For arrays and objects, its like 
+    
+        let mixed: any[] = [];
+        let ninja: { name: any, age: any };
