@@ -109,3 +109,18 @@ type (Aliasing):
         type objWithName = { name: string, uid: StringOrNum };
         
         const greeting = (user: objWithName) => {...}
+
+Function Signatures:
+--------------------
+
+- Can create signatures of functions and define the params, their types
+and the function's return type as well like
+
+        let calc: (a: number, b: number, c: string) => number;
+        calc = (numOne: number, numTwo: number, action: string) => {
+          if (action === 'add') {
+            return numOne + numTwo;
+          } else {
+            return numTwo - numOne; // if we dont return in else, will throw error as its in signature that it should always return number
+          }
+        };
