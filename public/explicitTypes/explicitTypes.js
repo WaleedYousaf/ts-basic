@@ -7,9 +7,9 @@ var isBlackBelt2;
 // age2 = 'max'; TS dont allow cuz var age2 has an explicit type number
 isBlackBelt2 = true;
 /***-------------- Arrays -----------------**/
-// let ninjas: string[]; // not initialized, just defined type
-var ninjas = [];
-ninjas.push('adam');
+// let users: string[]; // not initialized, just defined type
+var users = [];
+users.push('adam');
 /***-------------- Union -----------------**/
 var mixed2 = [];
 mixed2.push(20);
@@ -21,7 +21,7 @@ uid = 123;
 uid = 'maxie';
 // uid = false; // TS dont allow
 // union on object
-var ninjaOne;
-ninjaOne = { name: 'damian', age2: 30 };
-var ninjaTwo;
-ninjaTwo = { name: 'matt', age2: 19, beltColor: 'black' };
+var userOne;
+userOne = { name: 'damian', age2: 30 };
+var userTwo;
+userTwo = { name: 'matt', age2: 19, beltColor: 'black' };

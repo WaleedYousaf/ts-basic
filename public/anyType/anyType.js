@@ -11,5 +11,5 @@ uid1 = {
     age: 20,
 };
 var mixed1 = [];
-var ninja;
-ninja = { name: 'sa', age: 12 };
+var user;
+user = { name: 'sa', age: 12 };

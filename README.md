@@ -32,18 +32,18 @@ Explicit Types:
 - Define a type for a var at the time of declaration like 
     `
         let character: string;
-        let ninjas: string[] = [];
+        let users: string[] = [];
     `
 - Can also initialize at the time of declaration like
-    `let ninjas: string[] = [];`
+    `let users: string[] = [];`
 - Can define multiple types by unions like
     `let mixed: (string|number)[] = [];`
 - Union of basic dataTypes dont require `()` like
     `let uid: number|string;`
 - Explicit Types in objects can be achieved through 
         
-        let ninjaOne: object;
-        let ninjaTwo: {
+        let userOne: object;
+        let userTwo: {
           name: string,
           age: number,
           beltColor: string,
@@ -59,7 +59,7 @@ use any of the types
 - For arrays and objects, its like 
     
         let mixed: any[] = [];
-        let ninja: { name: any, age: any };
+        let user: { name: any, age: any };
      
 WF and TSConfig:
 ----------------
