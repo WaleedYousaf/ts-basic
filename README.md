@@ -40,12 +40,11 @@ Explicit Types:
     `let mixed: (string|number)[] = [];`
 - Union of basic dataTypes dont require `()` like
     `let uid: number|string;`
-- Explicit Types in objects can be achieved through
-    `
+- Explicit Types in objects can be achieved through 
+        
         let ninjaOne: object;
         let ninjaTwo: {
           name: string,
           age: number,
           beltColor: string,
         };
-    `
