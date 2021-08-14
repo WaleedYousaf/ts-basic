@@ -99,3 +99,13 @@ like
 - The type of the function is inferred by the type of data it returns. 
  For a function which is'nt returning anything, the type would be `void` 
 - Try declaring the optional params at the end after the required ones
+
+type (Aliasing):
+----------------
+
+- Instead of repeating the types in unions, we can create `type` like
+
+        type StringOrNum = string | number;
+        type objWithName = { name: string, uid: StringOrNum };
+        
+        const greeting = (user: objWithName) => {...}
