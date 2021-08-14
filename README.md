@@ -5,7 +5,8 @@ TS Basics:
 -----------
 
 - As the browsers only knows basic JS, after making a TS file,
-use command `tsc my-ts-file.ts updated-js-file.js` which will make its JS version
+use command `tsc my-ts-file.ts updated-js-file.js` for typescript conversion which
+will make its JS version
 - We can also avoid the target file if we wanna create the JS version with the same
 name `tsc my-ts-file.ts`
 - When we will make changes to out TS file, we'll have to update and make its JS version

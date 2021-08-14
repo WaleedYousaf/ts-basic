@@ -24,7 +24,7 @@ mixed[1] = 'mac';
 var knight = {
     name: 'jason',
     belt: 'black',
-    age: 19,
+    age: 19
 };
 knight.age = 20;
 // knight.name = 30; // TS dont allow
@@ -32,7 +32,7 @@ knight.age = 20;
 knight = {
     name: 'gordan',
     belt: 'white',
-    age: 43,
+    age: 43
 };
 // knight = {
 //   name: 'gordan',
