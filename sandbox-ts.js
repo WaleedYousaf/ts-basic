@@ -9,8 +9,8 @@
 
   --link: https://www.youtube.com/watch?v=iTZ1-85I77c --
 **/
-var character = 'waleed';
-console.log('character', character);
-var inputs = document.querySelectorAll('input');
-console.log('inputs', inputs);
-inputs.forEach(function (input, index) { return console.log(index, input); });
+var myCharacter = 'waleed';
+console.log('character', myCharacter);
+var myInputs = document.querySelectorAll('input');
+console.log('inputs', myInputs);
+myInputs.forEach(function (input, index) { return console.log(index, input); });
