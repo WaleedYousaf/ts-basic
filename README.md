@@ -137,7 +137,7 @@ element we are trying to access is in the DOM, we can use `!` like
         const anchorTag = document.querySelector('a')!;
         console.log(anchorTag.href);
 
-Alternatively, we can use conditional statements or optional chaining like
+- Alternatively, we can use conditional statements or optional chaining like
 
         const anchorTag = document.querySelector('a');
         console.log(anchorTag?.href);
@@ -221,3 +221,54 @@ neither inside nor outside the class
             this.identity = identity;
           }
         }
+
+Modules:
+-----------------
+
+- To structure code, in bigger projects, we need a modularized approach
+- To handle that, we introduce `module` in our scripts in `index.html` like
+
+          ...
+          <script type="module" src="app.js"></script>
+        </body>
+      </html>  
+- In addition to this, we'll update the module dependency and EcmaScript target version in `tsconfig.js`
+like
+
+        "target": "es6",
+        "module": "es2015",
+- Make sure we are running the html/htm static pages on a local or a remote server instead of file system, as 
+modules require a server. Viusal Studio's `Live Server` can be a good and easy option for local server  
+- No we can create and export a new directory/folder in our `src` folder and call it classes/myModule etc and 
+create a module/class like
+
+        export class Invoice {
+          client: string;
+          details: string;
+          amount: number;
+          readonly id: number;
+          private identity: string;
+
+          constructor(client: string, details: string, amount: number, id: number = 101, identity: string = 'secret') {
+            this.client = client;
+            this.details = details;
+            this.amount = amount;
+            this.id = id;
+            this.identity = identity;
+          }
+
+          format = () => `${this.client} owes $${this.amount} for ${this.details}`;
+        }
+- And access them from the main `app.js` by importing it like
+
+        import { Invoice } from "./classes/Invoice.js";
+
+        const invoiceOne = new Invoice('Ema', 'work on the website', 500);
+
+        console.log(invoiceOne);
+- While importing, make sure to import the `.js` as at the end, browser reads `.js`
+- There are a couple of drawbacks to this module system. They are:
+  - Only a specific number of modern browsers like chrome, firefox etc supports this module system
+  - It doesnt bundle our code into a single file. The browser is now using module system load separate files and make separate requests.
+  - We can notice on compiling, there are multiple files created against of all TSs
+- To cater these, we can use webpack which bundles our app into a single file
