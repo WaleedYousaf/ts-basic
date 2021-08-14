@@ -82,3 +82,20 @@ in `tsconfig.json` like
         "forceConsistentCasingInFileNames": true
       },
       "include": ["src"]
+
+Functions:
+----------
+
+- Can define the functions and specify the type of each param
+like
+
+        const add = (a: number, b: number) => {
+
+- For an optional parameter, can use either of the two ways
+
+        const add = (a: number, b: number, c?: number | string) => {
+        
+        const add = (a: number, b: number, c: number | string = 20) => {
+- The type of the function is inferred by the type of data it returns. 
+ For a function which is'nt returning anything, the type would be `void` 
+- Try declaring the optional params at the end after the required ones
