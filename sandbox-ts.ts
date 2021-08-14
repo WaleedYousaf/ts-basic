@@ -9,12 +9,12 @@
 
   --link: https://www.youtube.com/watch?v=iTZ1-85I77c --
 **/
-const character = 'waleed';
+const myCharacter = 'waleed';
 
-console.log('character', character);
+console.log('character', myCharacter);
 
-const inputs = document.querySelectorAll('input');
+const myInputs = document.querySelectorAll('input');
 
-console.log('inputs', inputs);
+console.log('inputs', myInputs);
 
-inputs.forEach((input, index) => console.log(index, input));
+myInputs.forEach((input, index) => console.log(index, input));
