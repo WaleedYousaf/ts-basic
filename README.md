@@ -60,3 +60,25 @@ use any of the types
     
         let mixed: any[] = [];
         let ninja: { name: any, age: any };
+     
+WF and TSConfig:
+----------------
+
+- Better to place `index.html`, `styless.css`, and 
+other files which are to be hosted publically in
+`public` folder and all the source code and ts files in `src`
+- Also, use the command `tsc --init` to generate tsConfig file
+- For start conversion of TS - JS, change following in 
+`tsconfig.json` file
+
+        ...,
+        "outDir": "./public",
+        "rootDir": "./src",
+        ...
+- To only allow conversion of the files in `src` folder, add `include` 
+in `tsconfig.json` like
+
+        ...,
+        "forceConsistentCasingInFileNames": true
+      },
+      "include": ["src"]
