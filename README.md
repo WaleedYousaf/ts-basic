@@ -25,3 +25,27 @@ Inference:
 time of declaration
 - Objects can get overridden if the schema is exactly same, but cannot 
 add/reduce/update keys
+
+Explicit Types:
+----------------
+
+- Define a type for a var at the time of declaration like 
+    `
+        let character: string;
+        let ninjas: string[] = [];
+    `
+- Can also initialize at the time of declaration like
+    `let ninjas: string[] = [];`
+- Can define multiple types by unions like
+    `let mixed: (string|number)[] = [];`
+- Union of basic dataTypes dont require `()` like
+    `let uid: number|string;`
+- Explicit Types in objects can be achieved through
+    `
+        let ninjaOne: object;
+        let ninjaTwo: {
+          name: string,
+          age: number,
+          beltColor: string,
+        };
+    `

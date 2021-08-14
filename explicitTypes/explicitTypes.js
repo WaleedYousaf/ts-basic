@@ -6,7 +6,7 @@ var isBlackBelt;
 // age = 'max'; TS dont allow cuz var age has an explicit type number
 isBlackBelt = true;
 /***-------------- Arrays -----------------**/
-// let ninjas: string[]; // not initialized/declared, just defined type
+// let ninjas: string[]; // not initialized, just defined type
 var ninjas = [];
 ninjas.push('adam');
 /***-------------- Union -----------------**/

@@ -9,7 +9,7 @@ let isBlackBelt: boolean;
 isBlackBelt = true;
 
 /***-------------- Arrays -----------------**/
-// let ninjas: string[]; // not initialized/declared, just defined type
+// let ninjas: string[]; // not initialized, just defined type
 let ninjas: string[] = [];
 ninjas.push('adam');
 
