@@ -9,9 +9,9 @@ let isBlackBelt2: boolean;
 isBlackBelt2 = true;
 
 /***-------------- Arrays -----------------**/
-// let ninjas: string[]; // not initialized, just defined type
-let ninjas: string[] = [];
-ninjas.push('adam');
+// let users: string[]; // not initialized, just defined type
+let users: string[] = [];
+users.push('adam');
 
 /***-------------- Union -----------------**/
 let mixed2: (string|number)[] = [];
@@ -26,13 +26,13 @@ uid = 'maxie';
 // uid = false; // TS dont allow
 
 // union on object
-let ninjaOne: object;
-ninjaOne = { name: 'damian', age2: 30 };
+let userOne: object;
+userOne = { name: 'damian', age2: 30 };
 
-let ninjaTwo: {
+let userTwo: {
   name: string,
   age2: number,
   beltColor: string,
 };
 
-ninjaTwo = { name: 'matt', age2: 19, beltColor: 'black' };
+userTwo = { name: 'matt', age2: 19, beltColor: 'black' };

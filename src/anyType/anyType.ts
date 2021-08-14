@@ -12,5 +12,5 @@ uid1 = {
 };
 
 let mixed1: any[] = [];
-let ninja: { name: any, age: any };
-ninja = { name: 'sa', age: 12 };
+let user: { name: any, age: any };
+user = { name: 'sa', age: 12 };

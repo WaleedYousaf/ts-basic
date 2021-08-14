@@ -32,18 +32,18 @@ Explicit Types:
 - Define a type for a var at the time of declaration like 
     `
         let character: string;
-        let ninjas: string[] = [];
+        let users: string[] = [];
     `
 - Can also initialize at the time of declaration like
-    `let ninjas: string[] = [];`
+    `let users: string[] = [];`
 - Can define multiple types by unions like
     `let mixed: (string|number)[] = [];`
 - Union of basic dataTypes dont require `()` like
     `let uid: number|string;`
 - Explicit Types in objects can be achieved through 
         
-        let ninjaOne: object;
-        let ninjaTwo: {
+        let userOne: object;
+        let userTwo: {
           name: string,
           age: number,
           beltColor: string,
@@ -59,7 +59,7 @@ use any of the types
 - For arrays and objects, its like 
     
         let mixed: any[] = [];
-        let ninja: { name: any, age: any };
+        let user: { name: any, age: any };
      
 WF and TSConfig:
 ----------------
@@ -82,3 +82,45 @@ in `tsconfig.json` like
         "forceConsistentCasingInFileNames": true
       },
       "include": ["src"]
+
+Functions:
+----------
+
+- Can define the functions and specify the type of each param
+like
+
+        const add = (a: number, b: number) => {
+
+- For an optional parameter, can use either of the two ways
+
+        const add = (a: number, b: number, c?: number | string) => {
+        
+        const add = (a: number, b: number, c: number | string = 20) => {
+- The type of the function is inferred by the type of data it returns. 
+ For a function which is'nt returning anything, the type would be `void` 
+- Try declaring the optional params at the end after the required ones
+
+type (Aliasing):
+----------------
+
+- Instead of repeating the types in unions, we can create `type` like
+
+        type StringOrNum = string | number;
+        type objWithName = { name: string, uid: StringOrNum };
+        
+        const greeting = (user: objWithName) => {...}
+
+Function Signatures:
+--------------------
+
+- Can create signatures of functions and define the params, their types
+and the function's return type as well like
+
+        let calc: (a: number, b: number, c: string) => number;
+        calc = (numOne: number, numTwo: number, action: string) => {
+          if (action === 'add') {
+            return numOne + numTwo;
+          } else {
+            return numTwo - numOne; // if we dont return in else, will throw error as its in signature that it should always return number
+          }
+        };
