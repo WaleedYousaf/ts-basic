@@ -1,12 +1,12 @@
 /***============== Explicit Types ==============**/
 
 /***-------------- Basic types -----------------**/
-let character: string;
-let age: number;
-let isBlackBelt: boolean;
+let character2: string;
+let age2: number;
+let isBlackBelt2: boolean;
 
-// age = 'max'; TS dont allow cuz var age has an explicit type number
-isBlackBelt = true;
+// age2 = 'max'; TS dont allow cuz var age2 has an explicit type number
+isBlackBelt2 = true;
 
 /***-------------- Arrays -----------------**/
 // let ninjas: string[]; // not initialized, just defined type
@@ -14,10 +14,10 @@ let ninjas: string[] = [];
 ninjas.push('adam');
 
 /***-------------- Union -----------------**/
-let mixed: (string|number)[] = [];
-mixed.push(20);
-mixed.push('ema');
-// mixed.push(false); // TS dont allow
+let mixed2: (string|number)[] = [];
+mixed2.push(20);
+mixed2.push('ema');
+// mixed2.push(false); // TS dont allow
 
 // union on basic types (no need of `()`)
 let uid: number|string;
@@ -27,12 +27,12 @@ uid = 'maxie';
 
 // union on object
 let ninjaOne: object;
-ninjaOne = { name: 'damian', age: 30 };
+ninjaOne = { name: 'damian', age2: 30 };
 
 let ninjaTwo: {
   name: string,
-  age: number,
+  age2: number,
   beltColor: string,
 };
 
-ninjaTwo = { name: 'matt', age: 19, beltColor: 'black' };
+ninjaTwo = { name: 'matt', age2: 19, beltColor: 'black' };
