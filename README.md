@@ -150,3 +150,74 @@ of DOM element it is. It just know which DOM element it is like an input, select
 - To deal with it, we can use type casting like
 
         const anchorTag = document.querySelector('#anchorTag') as HTMLAnchorElement;
+
+Classes:
+--------
+
+- Can define classes similar to JS
+- All the properties of the class must hae defined types and 
+needs to be initialized, can be initialized in the constructor like
+
+        class Invoice {
+          client: string;
+          details: string;
+          amount: number;
+        
+          constructor(client: string, details: string, amount: number) {
+            this.client = client;
+            this.details = details;
+            this.amount = amount;
+          }
+        
+          format = () => `${this.client} owes $${this.amount} for ${this.details}`;
+        }
+- Can create instances of class like
+
+        const invoiceOne = new Invoice('Ema', 'work on the website', 500);      
+- Can infer new variables/arrays with the type of this class like
+
+        let invoices: Invoice[] = []; 
+
+Access Modifiers:
+-----------------
+
+- The properties of the class can be `public`, `private` or `readonly` like
+
+        class Invoice {
+          // public client: string; // can avoid public as by default its public
+          client: string;
+          details: string;
+          amount: number;
+          readonly id: number;
+          private identity: string;
+        
+          constructor(client: string, details: string, amount: number, id: number = 101, identity: string = 'secret') {
+            this.client = client;
+            this.details = details;
+            this.amount = amount;
+            this.id = id;
+            this.identity = identity;
+          }
+        
+          format = () => `${this.client} owes $${this.amount} for ${this.details}`;
+        }
+- Public properties are both access-able and can be modified outside the class (but 
+the type cannot be changed) like
+
+        invoiceOne.client = 'Matt';
+- ReadOnly properties are access-able outside the class but we cant modify them
+neither inside nor outside the class
+- Private properties cannot be accessed outside the class
+- if using access modifiers with all the params, we can use shorthand like
+
+        class InvoiceUpdated {
+          constructor(
+            public client: string,
+            readonly id: number = 101,
+            private identity: string = 'secret'
+          ) {
+            this.client = client;
+            this.id = id;
+            this.identity = identity;
+          }
+        }
