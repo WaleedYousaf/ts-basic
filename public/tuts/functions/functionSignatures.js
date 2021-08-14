@@ -2,13 +2,13 @@
 /***============== Functions Signature ==============**/
 // let greetings: Function;
 // example 1
-var greetings;
-greetings = function (name, greeting) {
-    console.log(name + " says " + greeting);
+let greetings;
+greetings = (name, greeting) => {
+    console.log(`${name} says ${greeting}`);
 };
 // example 2
-var calc;
-calc = function (numOne, numTwo, action) {
+let calc;
+calc = (numOne, numTwo, action) => {
     if (action === 'add') {
         return numOne + numTwo;
     }
@@ -17,8 +17,8 @@ calc = function (numOne, numTwo, action) {
     }
 };
 // example 3
-var logsDetails;
+let logsDetails;
 // for using signature, schema has to be same but we can change the params' names
-logsDetails = function (user) {
-    console.log(user.name + " is " + user.age + " years old");
+logsDetails = (user) => {
+    console.log(`${user.name} is ${user.age} years old`);
 };
