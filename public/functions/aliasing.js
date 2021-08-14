@@ -1,5 +1,5 @@
 "use strict";
-/***============== Functions ==============**/
+/***============== type (Aliasing) ==============**/
 var logDetails = function (uid, item) {
     console.log(item + " has a uid: " + uid);
 };

@@ -1,4 +1,4 @@
-/***============== Functions ==============**/
+/***============== type (Aliasing) ==============**/
 
 // can reuse types, to avoid duplication
 type StringOrNum = string | number;
