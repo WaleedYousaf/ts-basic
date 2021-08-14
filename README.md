@@ -124,3 +124,29 @@ and the function's return type as well like
             return numTwo - numOne; // if we dont return in else, will throw error as its in signature that it should always return number
           }
         };
+
+DOM:
+----
+
+- Can access DOM as in JS/React etc
+- One difference is that during development, TS dont have access to
+index.html and its element so it throws errors while accessing those
+- There are a couple of solutions to cater that, if we are sure that the
+element we are trying to access is in the DOM, we can use `!` like
+
+        const anchorTag = document.querySelector('a')!;
+        console.log(anchorTag.href);
+
+Alternatively, we can use conditional statements or optional chaining like
+
+        const anchorTag = document.querySelector('a');
+        console.log(anchorTag?.href);
+
+Type Casting:
+-------------
+
+- Even though, TS grabs the DOM elements, it doesnt know which type 
+of DOM element it is. It just know which DOM element it is like an input, select, anchor etc
+- To deal with it, we can use type casting like
+
+        const anchorTag = document.querySelector('#anchorTag') as HTMLAnchorElement;
