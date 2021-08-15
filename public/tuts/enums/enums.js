@@ -1,7 +1,6 @@
 "use strict";
 /***============== ENUMs ==============**/
 // They are special type in TS which allows to store a set of consts or keywords and associate them a numeric value
-// 
 var ResourceType;
 (function (ResourceType) {
     ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
