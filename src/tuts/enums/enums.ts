@@ -1,6 +1,5 @@
 /***============== ENUMs ==============**/
 // They are special type in TS which allows to store a set of consts or keywords and associate them a numeric value
-// 
 
 enum ResourceType {
   BOOK, AUTHOR, FILM, DIRECTOR
