@@ -14,14 +14,14 @@ Stack (Tools and Technologies):
 -------------------------------
 
 - Technologies:
-  - <b>Javascript</b> (TypeScript is a wrapper to JS and during compilation, it converts to JS)
-  - <b>TypeScript</b> (The core language for the project)
-  - <b>HTML</b> (To structure the DOM)
-  - <b>CSS</b> (To style the HTML elements)
+  - <b>TypeScript</b> - Base project language
+  - <b>Javascript</b> - TypeScript will get compiled to JavaScript
+  - <b>HTML</b> - Structuring the webpages
+  - <b>CSS</b> - Styling the webpages
 - Tools:
-  - <b>VS Code - IDE</b> (Any other IDE can be used like Webstorm, Atom, etc)
-  - <b>GitBash - Version Control</b>
-  - <b>Chrome - Web Browser</b> (Any other browsers can be used but modern browsers like Chrome, Safari, Firefox are recommended)
+  - <b>VS Code</b> - IDE (others can also be used like Webstorm, Atom, etc)
+  - <b>GitBash</b> - Version Control
+  - <b>Chrome</b> - Web Browser (others can also be used but modern browsers like Chrome, Safari, Firefox are recommended)
 
 Setup:
 ------
