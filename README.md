@@ -395,3 +395,50 @@ the types of those properties and return types of those methods
         // both have type `HasFormatter`
         docs.push(docOne);
         docs.push(docTwo);
+
+Generics:
+---------
+
+- They allow us to create reusable blocks of code which can be used with different types
+- We can use generics by appending `<T>` (or anything other than `T`) with the parameter definition like
+
+        const appendUid = <T>(obj: T) => {
+        let uid = Math.floor(Math.random() * 100);
+          return { ...obj, uid };
+        }
+
+        let docTwo = appendUid({ name: 'Ema', age: '40' });
+        console.log('init ', docTwo.name);
+- This captures whatever object we pass to this function. Now it knows what properties are on that object
+- But now in method, we are not specifying the type of the parameter, we are just saying it would be what is passed
+- To take care of this, we can do something like
+
+        const appendUid = <T extends object>(obj: T) => {
+        let uid = Math.floor(Math.random() * 100);
+          return { ...obj, uid };
+        }
+- Or to be more specific about the schema of the object, we can do
+
+        const appendUid = <T extends { name: string }>(obj: T) => {
+        let uid = Math.floor(Math.random() * 100);
+          return { ...obj, uid };
+        }
+- We can use generics with interfaces as
+
+        interface Player<T> {
+          uid: number;
+          name: string;
+          data: T;
+        }
+
+        const docFour: Player<object> = {
+          uid: 1,
+          name: 'villa',
+          data: { fName: 'david' }
+        };
+
+        const docFive: Player<string[]> = {
+          uid: 2,
+          name: 'Silva',
+          data: ['dribble', 'passing']
+        };
