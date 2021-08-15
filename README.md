@@ -191,7 +191,7 @@ Type Casting:
 
 - Even though, TS grabs the DOM elements, it doesnt know which type 
 of DOM element it is. It just know which DOM element it is like an input, select, anchor etc
-- To deal with it, we can use type casting like
+- To deal with it, we can use the keyword `as` for type casting like
 
         const anchorTag = document.querySelector('#anchorTag') as HTMLAnchorElement;
 
