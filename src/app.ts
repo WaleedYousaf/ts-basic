@@ -1,18 +1,7 @@
 import { Invoice } from "./classes/Invoice.js";
+import { ListTemplate } from "./classes/ListTemplate.js";
 import { Payment } from "./classes/Payment.js";
 import { HasFormatter } from "./interfaces/HasFormatter.js";
-
-let docOne: HasFormatter;
-let docTwo: HasFormatter;
-
-// can initiate from Invoice or Payment cuz they both `has` `HasFormatter`
-docOne = new Invoice('Neymar', 'barca to psg', 200);
-docTwo = new Payment('Ronaldo', 'madrid to juventus', 250);
-
-let docs: HasFormatter[] = [];
-// both have type `HasFormatter`
-docs.push(docOne);
-docs.push(docTwo);
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
 // console.log(form.children);
@@ -24,6 +13,9 @@ const toFrom = document.querySelector('#tofrom') as HTMLInputElement;
 const details = document.querySelector('#details') as HTMLInputElement;
 const amount = document.querySelector('#amount') as HTMLInputElement;
 
+const ul = document.querySelector('ul')!;
+const list = new ListTemplate(ul);
+
 form.addEventListener('submit', (e: Event) => {
   e.preventDefault();
 
@@ -34,6 +26,5 @@ form.addEventListener('submit', (e: Event) => {
     doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
   }
 
-
-  console.log('Doc is: ', doc);
+  list.render(doc, type.value, 'end');
 });
