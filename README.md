@@ -455,3 +455,20 @@ and associate them a numeric value
 
         // value of `myResourceType` would be `0` in this case
  
+Tuples:
+-------
+
+- Its also a built in type
+- They are a little bit as arrays as we define them in 
+square brackets and use array methods
+- One major diff is the type of data in each position is fixed
+once its being initialized
+
+        let tup: [string, number, boolean] = ['messi', 30, false];
+        tup[0] = 'neymar'
+        // let tupTwo: [string, number, boolean] = ['messi', 30, 'silva']; // not allowed
+        // tup[0] = false // not allowed
+
+        let player: [string, number];
+        player = ['Ronaldo', 30];
+        // player = ['Ronaldo', 'Messi']; // not allowed
