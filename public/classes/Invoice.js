@@ -1,3 +1,4 @@
+// now this class must have a method `format`
 export class Invoice {
     constructor(client, details, amount, id = 101, identity = 'secret') {
         this.format = () => `${this.client} owes $${this.amount} for ${this.details}`;
