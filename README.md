@@ -238,7 +238,8 @@ like
         "target": "es6",
         "module": "es2015",
 - Make sure we are running the html/htm static pages on a local or a remote server instead of file system, as 
-modules require a server. Viusal Studio's `Live Server` can be a good and easy option for local server  
+modules require a server. Viusal Studio's `Live Server` can
+be a good and easy option for a local server. Alternatively, for other IDEs, we can use an npm package `http-server`  
 - No we can create and export a new directory/folder in our `src` folder and call it classes/myModule etc and 
 create a module/class like
 
