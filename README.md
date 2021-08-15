@@ -1,29 +1,54 @@
 # ts-basic
-Basic typescript app
 
-TS Basics:
------------
+Introduction:
+-------------
+
+A basic TypeScript application which uses all the concepts, and shows how TypeScript modules are structured. Guides on each step for better understandability.
+
+Pre-requisites:
+---------------
+
+- NodeJS (https://nodejs.org/en/) (Just for npm packages)
+
+Stack (Tools and Technologies):
+-------------------------------
+
+- Technologies:
+  - <b>Javascript</b> (TypeScript is a wrapper to JS and during compilation, it converts to JS)
+  - <b>TypeScript</b> (The core language for the project)
+  - <b>HTML</b> (To structure the DOM)
+  - <b>CSS</b> (To style the HTML elements)
+- Tools:
+  - <b>VS Code - IDE</b> (Any other IDE can be used like Webstorm, Atom, etc)
+  - <b>GitBash - Version Control</b>
+  - <b>Chrome - Web Browser</b> (Any other browsers can be used but modern browsers like Chrome, Safari, Firefox are recommended)
+
+Setup:
+------
 
 - As the browsers only knows basic JS, after making a TS file,
 use command `tsc my-ts-file.ts updated-js-file.js` for typescript conversion which
 will make its JS version
 - We can also avoid the target file if we wanna create the JS version with the same
 name `tsc my-ts-file.ts`
-- When we will make changes to out TS file, we'll have to update and make its JS version
+- When we will make changes to our TS file, we'll have to update and make its JS version
 with the same 'tsc' command. In order to avoid it, use `tsc my-ts-file.ts -w` which will
 start to watch for the changes
+
+</br></br>
+<h1>TypeScript Concepts</h1>
 
 Inference:
 -----------
 
-- TS dont allow changing var/lets types later on
+- TS doesn't allow changing var/lets types later on
 - Type is decided at the time of declaration
 
         let character = 'mario';
         let age = 'mario';
         let isBlackBelt = false;
 
-        // character = 20; // TS dont allow type change
+        // character = 20; // TS doesn't allow type change
         character = 'luigi';
 
         // define type of a param with `myParam: number`
@@ -31,17 +56,17 @@ Inference:
 
         let names = ['max', 'ema'];
         names.push('dave');
-        // names.push(20); // TS dont allow
+        // names.push(20); // TS doesn't allow
 
         names[0] = 'shawn';
-        // names[0] = 20; // TS dont allow
+        // names[0] = 20; // TS doesn't allow
 - Can declare a mixed array and that can then extend to the types used at the
 time of declaration
 
         let mixed = ['kim', 20, 'ann'];
         mixed.push(30);
         mixed[1] = 'mac';
-        // mixed[0] = false; // TS dont allow cuz array inference is string|number
+        // mixed[0] = false; // TS doesn't allow cuz array inference is string|number
 - Objects can get overridden if the schema is exactly same, but cannot 
 add/reduce/update keys
 
@@ -52,8 +77,8 @@ add/reduce/update keys
         };
 
         knight.age = 20;
-        // knight.name = 30; // TS dont allow
-        // knight.skill = 'mma'; // TS dont allow
+        // knight.name = 30; // TS doesn't allow
+        // knight.skill = 'mma'; // TS doesn't allow
 
         knight = {
           name: 'gordan',
@@ -65,7 +90,7 @@ add/reduce/update keys
         //   name: 'gordan',
         //   myBelt: 'white',
         //   skill: 'ji-jitsu'
-        // }; // TS dont allow adding or changing keys, signature/schema has to be the same
+        // }; // TS doesn't allow adding or changing keys, signature/schema has to be the same
 
 Explicit Types:
 ----------------
@@ -173,7 +198,7 @@ DOM:
 ----
 
 - Can access DOM as in JS/React etc
-- One difference is that during development, TS dont have access to
+- One difference is that during development, TS doesn't have access to
 index.html and its element so it throws errors while accessing those
 - There are a couple of solutions to cater that, if we are sure that the
 element we are trying to access is in the DOM, we can use `!` like
@@ -344,12 +369,12 @@ the types of those properties and return types of those methods
           transferMoney(money: number): number {
             return money;
           },
-          // skills: ['dribbling'] // TS dont allow cuz not in interface
+          // skills: ['dribbling'] // TS doesn't allow cuz not in interface
         };
 
         const transfer = (person: IsPlayer) => {
           console.log('Transferred ', person.name);
-          // console.log('Transferred ', person.skills); TS dont allow cuz skills aint defined in the interface
+          // console.log('Transferred ', person.skills); TS doesn't allow cuz skills aint defined in the interface
         }
 
         console.log(transfer(neymar));
