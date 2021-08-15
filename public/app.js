@@ -1,14 +1,6 @@
 import { Invoice } from "./classes/Invoice.js";
+import { ListTemplate } from "./classes/ListTemplate.js";
 import { Payment } from "./classes/Payment.js";
-let docOne;
-let docTwo;
-// can initiate from Invoice or Payment cuz they both `has` `HasFormatter`
-docOne = new Invoice('Neymar', 'barca to psg', 200);
-docTwo = new Payment('Ronaldo', 'madrid to juventus', 250);
-let docs = [];
-// both have type `HasFormatter`
-docs.push(docOne);
-docs.push(docTwo);
 const form = document.querySelector('.new-item-form');
 // console.log(form.children);
 // inputs - `as` typecasting
@@ -17,6 +9,8 @@ const type = document.querySelector('#type');
 const toFrom = document.querySelector('#tofrom');
 const details = document.querySelector('#details');
 const amount = document.querySelector('#amount');
+const ul = document.querySelector('ul');
+const list = new ListTemplate(ul);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     let doc;
@@ -26,5 +20,5 @@ form.addEventListener('submit', (e) => {
     else {
         doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
     }
-    console.log('Doc is: ', doc);
+    list.render(doc, type.value, 'end');
 });
