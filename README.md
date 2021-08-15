@@ -13,33 +13,77 @@ name `tsc my-ts-file.ts`
 with the same 'tsc' command. In order to avoid it, use `tsc my-ts-file.ts -w` which will
 start to watch for the changes
 
-  --link: https://www.youtube.com/watch?v=iTZ1-85I77c --
-
-
 Inference:
 -----------
 
 - TS dont allow changing var/lets types later on
 - Type is decided at the time of declaration
-- Can declare a mixed array and that can then extend to the types used at the 
+
+        let character = 'mario';
+        let age = 'mario';
+        let isBlackBelt = false;
+
+        // character = 20; // TS dont allow type change
+        character = 'luigi';
+
+        // define type of a param with `myParam: number`
+        const circumference = (diameter: number) => diameter * Math.PI;
+
+        let names = ['max', 'ema'];
+        names.push('dave');
+        // names.push(20); // TS dont allow
+
+        names[0] = 'shawn';
+        // names[0] = 20; // TS dont allow
+- Can declare a mixed array and that can then extend to the types used at the
 time of declaration
+
+        let mixed = ['kim', 20, 'ann'];
+        mixed.push(30);
+        mixed[1] = 'mac';
+        // mixed[0] = false; // TS dont allow cuz array inference is string|number
 - Objects can get overridden if the schema is exactly same, but cannot 
 add/reduce/update keys
+
+        let knight = {
+          name: 'jason',
+          belt: 'black',
+          age: 19,
+        };
+
+        knight.age = 20;
+        // knight.name = 30; // TS dont allow
+        // knight.skill = 'mma'; // TS dont allow
+
+        knight = {
+          name: 'gordan',
+          belt: 'white',
+          age: 43,
+        };
+
+        // knight = {
+        //   name: 'gordan',
+        //   myBelt: 'white',
+        //   skill: 'ji-jitsu'
+        // }; // TS dont allow adding or changing keys, signature/schema has to be the same
 
 Explicit Types:
 ----------------
 
 - Define a type for a var at the time of declaration like 
-    `
+
         let character: string;
         let users: string[] = [];
-    `
+
 - Can also initialize at the time of declaration like
-    `let users: string[] = [];`
+
+        let users: string[] = [];
 - Can define multiple types by unions like
-    `let mixed: (string|number)[] = [];`
+
+        let mixed: (string|number)[] = [];
 - Union of basic dataTypes dont require `()` like
-    `let uid: number|string;`
+
+        let uid: number|string;
 - Explicit Types in objects can be achieved through 
         
         let userOne: object;
