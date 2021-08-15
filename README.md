@@ -223,7 +223,7 @@ neither inside nor outside the class
         }
 
 Modules:
------------------
+--------
 
 - To structure code, in bigger projects, we need a modularized approach
 - To handle that, we introduce `module` in our scripts in `index.html` like
@@ -238,7 +238,8 @@ like
         "target": "es6",
         "module": "es2015",
 - Make sure we are running the html/htm static pages on a local or a remote server instead of file system, as 
-modules require a server. Viusal Studio's `Live Server` can be a good and easy option for local server  
+modules require a server. Viusal Studio's `Live Server` can
+be a good and easy option for a local server. Alternatively, for other IDEs, we can use an npm package `http-server`  
 - No we can create and export a new directory/folder in our `src` folder and call it classes/myModule etc and 
 create a module/class like
 
@@ -272,3 +273,81 @@ create a module/class like
   - It doesnt bundle our code into a single file. The browser is now using module system load separate files and make separate requests.
   - We can notice on compiling, there are multiple files created against of all TSs
 - To cater these, we can use webpack which bundles our app into a single file
+
+Interfaces:
+-----------
+
+- They enforce structure on a class or objects
+- We can describe what properties or functions a class can have and
+the types of those properties and return types of those methods
+- Difference from class is that we cant create objects
+- Can create interfaces with the keyword `interface` like
+
+        interface IsPlayer {
+          name: string,
+          age: number,
+          play(a: string): void,
+          transferMoney(a: number): number,
+        }
+- And use it like
+
+        const ronaldo: IsPlayer = {
+          name: 'ronaldo',
+          age: 30,
+          play(style: string): void {
+            console.log(style);
+          },
+          transferMoney(money: number): number {
+            return money;
+          },
+          // skills: ['dribbling'] // TS dont allow cuz not in interface
+        };
+
+        const transfer = (person: IsPlayer) => {
+          console.log('Transferred ', person.name);
+          // console.log('Transferred ', person.skills); TS dont allow cuz skills aint defined in the interface
+        }
+
+        console.log(transfer(neymar));
+- For using an interface with classes, first create an interface like
+
+        export interface HasFormatter {
+          format(): string;
+        }
+
+- Now use that in a class using `implements` keyword like
+
+        import { HasFormatter } from '../interfaces/HasFormatter.js';
+
+        // now this class must have a method `format`
+        export class Invoice implements HasFormatter {
+          client: string;
+          details: string;
+          amount: number;
+          readonly id: number;
+          private identity: string;
+
+          constructor(client: string, details: string, amount: number, id: number = 101, identity: string = 'secret') {
+            this.client = client;
+            this.details = details;
+            this.amount = amount;
+            this.id = id;
+            this.identity = identity;
+          }
+
+          format = () => `${this.client} owes $${this.amount} for ${this.details}`;
+        }
+
+- Now call the class with interface like
+
+        let docOne: HasFormatter;
+        let docTwo: HasFormatter;
+
+        // can initiate from Invoice or Payment cuz they both `has` `HasFormatter`
+        docOne = new Invoice('Neymar', 'barca to psg', 200);
+        docTwo = new Payment('Ronaldo', 'madrid to juventus', 250);
+
+        let docs: HasFormatter[] = [];
+        // both have type `HasFormatter`
+        docs.push(docOne);
+        docs.push(docTwo);

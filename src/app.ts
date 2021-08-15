@@ -1,23 +1,39 @@
 import { Invoice } from "./classes/Invoice.js";
+import { Payment } from "./classes/Payment.js";
+import { HasFormatter } from "./interfaces/HasFormatter.js";
 
-const InvoiceOne = new Invoice('Ema', 'work on the website', 500);
-const InvoiceTwo = new Invoice('Carl', 'work on sales', 300);
+let docOne: HasFormatter;
+let docTwo: HasFormatter;
 
-console.log(InvoiceOne, InvoiceTwo);
+// can initiate from Invoice or Payment cuz they both `has` `HasFormatter`
+docOne = new Invoice('Neymar', 'barca to psg', 200);
+docTwo = new Payment('Ronaldo', 'madrid to juventus', 250);
 
-// inferring the class type object's array
-let Invoices: Invoice[] = [];
-// Invoices.push('Jill'); // TS dont allow cuz type inferred is Invoice
-Invoices.push(InvoiceOne);
-Invoices.push(InvoiceTwo);
+let docs: HasFormatter[] = [];
+// both have type `HasFormatter`
+docs.push(docOne);
+docs.push(docTwo);
 
-/***------------ Access Modifiers ------------**/
-// all the properties of the class are public by default, we can change their "instance's" values, BUT we cant change their types
-InvoiceOne.client = 'Jill';
-// InvoiceOne.details = 200; // TS dont allow changing type
+const form = document.querySelector('.new-item-form') as HTMLFormElement;
+// console.log(form.children);
 
-Invoices.forEach((Invoice) => {
-  // Invoice.id = 202; // TS dont allow cuz the property 'id' is `readonly`. Cant even update inside the class
-  // console.log(Invoice.identity); // TS dont allow cuz property 'identity' is private and is only access-able inside the class
-  console.log(Invoice.client, Invoice.details, Invoice.amount, Invoice.format());
+// inputs - `as` typecasting
+// const type = document.querySelector('#type')!; // throws an error cuz TS gets that element but dont now what it actually is, we have to specify its type using `TypeCasting`
+const type = document.querySelector('#type') as HTMLSelectElement;
+const toFrom = document.querySelector('#tofrom') as HTMLInputElement;
+const details = document.querySelector('#details') as HTMLInputElement;
+const amount = document.querySelector('#amount') as HTMLInputElement;
+
+form.addEventListener('submit', (e: Event) => {
+  e.preventDefault();
+
+  let doc: HasFormatter;
+  if (type.value === 'invoice') {
+    doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
+  } else {
+    doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
+  }
+
+
+  console.log('Doc is: ', doc);
 });
